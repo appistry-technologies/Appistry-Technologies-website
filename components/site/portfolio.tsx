@@ -1,0 +1,12 @@
+"use client";
+import {useContent} from "@/components/admin/content-provider";
+import { EditableText } from "@/components/admin/editable";
+
+
+import {useState} from "react";
+import {Button} from "@/components/ui/button";
+
+
+import {AppCard,WorkCard} from "./home";
+import {Reveal} from "./shell";
+export function Portfolio({kind}:{kind:"apps"|"work"}){const {content:{copy,apps,work}}=useContent();const [category,setCategory]=useState("All");const [platform,setPlatform]=useState("All");const filters=kind==="apps"?["All",...new Set(apps.map(a=>a.category))]:["All","iOS","Android","Cross-platform","Backend"];const filteredApps=apps.filter(a=>(category==="All"||a.category===category)&&(platform==="All"||a.platforms.includes(platform)));const filteredWork=work.filter(w=>category==="All"||w.platforms.includes(category));return <><div className="portfolio-filter"><div className="filter-bar" aria-label={kind==="apps"?"Filter apps by category":"Filter projects by platform"}>{filters.map(f=><Button key={f} variant="ghost" className={`filter ${category===f?"active":""}`} onClick={()=>setCategory(f)} aria-pressed={category===f}>{f}</Button>)}</div>{kind==="apps"&&<label className="platform-select"><EditableText path="components_site_portfolio.text1" fallback={copy.components_site_portfolio.text1} /><select value={platform} onChange={e=>setPlatform(e.target.value)}><option value="All">{copy.components_site_portfolio.text2}</option><option value="iOS">{copy.components_site_portfolio.text3}</option><option value="Android">{copy.components_site_portfolio.text4}</option></select></label>}</div><p className="result-count" aria-live="polite">{kind==="apps"?filteredApps.length:filteredWork.length} {kind==="apps"?"apps":"projects"}</p><div className={kind==="apps"?"portfolio-app-grid":"work-grid"}>{kind==="apps"?filteredApps.map(a=><Reveal key={a.id}><AppCard app={a}/></Reveal>):filteredWork.map(w=><Reveal key={w.slug}><WorkCard project={w}/></Reveal>)}</div>{kind==="apps"&&filteredApps.length===0&&<div className="empty-state"><h3><EditableText path="components_site_portfolio.text5" fallback={copy.components_site_portfolio.text5} /></h3><p><EditableText path="components_site_portfolio.text6" fallback={copy.components_site_portfolio.text6} /></p><Button onClick={()=>{setCategory("All");setPlatform("All")}}><EditableText path="components_site_portfolio.text7" fallback={copy.components_site_portfolio.text7} /></Button></div>}</>}

@@ -1,0 +1,11 @@
+"use client";
+import {useContent} from "@/components/admin/content-provider";
+import { EditableText } from "@/components/admin/editable";
+
+
+import {useEffect,useState} from "react";
+
+import {Reveal,ProjectLink} from "./shell";
+import {serviceIcons} from "./home";
+import {Check,Clock3} from "lucide-react";
+export function ServiceDetails(){const {content:{copy,services}}=useContent();const [active,setActive]=useState(services[0]?.id ?? "");useEffect(()=>{const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)setActive(e.target.id)})},{rootMargin:"-20% 0px -55% 0px",threshold:0});services.forEach(s=>{const el=document.getElementById(s.id);if(el)observer.observe(el)});return()=>observer.disconnect()},[services]);return <div className="service-layout"><nav aria-label={copy.components_site_service_details.text1} className="service-sidenav">{services.map((s,i)=><a key={s.id} href={`#${s.id}`} className={active===s.id?"active":""} aria-current={active===s.id?"location":undefined}><small><EditableText path="components_site_service_details.text2" fallback={copy.components_site_service_details.text2} />{i+1}</small>{s.title}</a>)}</nav><div>{services.map((s,i)=>{const Icon=serviceIcons[s.icon];return <section className="service-detail" id={s.id} key={s.id}><Reveal><div className="detail-icon"><Icon size={32}/><span><EditableText path="components_site_service_details.text3" fallback={copy.components_site_service_details.text3} />{i+1}</span></div><h2>{s.title}</h2><p className="lead">{s.description}</p><div className="detail-columns"><div><h3><EditableText path="components_site_service_details.text4" fallback={copy.components_site_service_details.text4} /></h3>{s.capabilities.map(c=><p className="check-line" key={c}><Check size={16}/>{c}</p>)}</div><div><h3><EditableText path="components_site_service_details.text5" fallback={copy.components_site_service_details.text5} /></h3>{s.deliverables.map(c=><p className="check-line" key={c}><Check size={16}/>{c}</p>)}</div></div><div className="stack-row">{s.tech.map(t=><span className="pill" key={t}>{t}</span>)}</div><p className="timeline"><Clock3 size={17}/> <EditableText path="components_site_service_details.text6" fallback={copy.components_site_service_details.text6} />{s.timeline}</p><ProjectLink/></Reveal></section>})}</div></div>}
