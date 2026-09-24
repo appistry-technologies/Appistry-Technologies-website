@@ -44,7 +44,7 @@ export function EditableImage({
     try {
       const newBlob = await upload(file.name, file, {
         access: 'public',
-        clientPayload: await auth.currentUser?.getIdToken(),
+        clientPayload: await auth?.currentUser?.getIdToken(),
         handleUploadUrl: '/api/upload',
       });
 

@@ -63,9 +63,11 @@ export function ContentProvider({ children,initialContent }: { children: React.R
   const [loaded,setLoaded]=useState<Record<string,boolean>>({});
   const sourceKey=(collection:keyof ContentState)=>collection === "extras" ? `extras:${isAdmin}` : collection;
   const canEdit=(collection:keyof ContentState)=>!!loaded[sourceKey(collection)];
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(!!db);
 
   useEffect(() => {
+    if(!db)return;
+    const database=db;
     const collections: (keyof ContentState)[] = [
       "copy", "apps", "services", "site", "technology", "testimonials", "work", "extras"
     ];
@@ -76,7 +78,7 @@ export function ContentProvider({ children,initialContent }: { children: React.R
     };
     // Visitors read content only. Missing or unavailable documents use local defaults.
     const unsubscribes = collections.map(collection => onSnapshot(
-      doc(db, "siteContent", collection === "extras" && !isAdmin ? "extrasPublic" : collection),
+      doc(database, "siteContent", collection === "extras" && !isAdmin ? "extrasPublic" : collection),
       snapshot => {
         if (snapshot.exists() && snapshot.data().data != null) {
           setContent(previous => ({ ...previous, [collection]: mergeDefaults(defaultContent[collection], snapshot.data().data) }));
@@ -96,6 +98,7 @@ export function ContentProvider({ children,initialContent }: { children: React.R
 
   const updateContent = async (collection: keyof ContentState, path: string | null, newValue: unknown, reportErrors = false) => {
     try {
+      if(!db)throw new Error("Firebase is not configured. Add the public Firebase environment variables and redeploy.");
       if(!canEdit(collection))throw new Error("Content is still loading or could not be read. Check your connection and Firebase permissions, then reload before editing.");
       const docRef = doc(db, "siteContent", collection);
       let next = newValue;

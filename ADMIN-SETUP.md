@@ -53,3 +53,5 @@ The checked-in `vercel.json` selects Next.js, installs with `pnpm install --froz
 Before deploying, set your NEXT_PUBLIC_FIREBASE_* configuration in Vercel Project Settings > Environment Variables. Also set NEXT_PUBLIC_ADMIN_EMAILS and ADMIN_EMAILS to appistrytech@gmail.com, and NEXT_PUBLIC_SITE_URL to the final HTTPS site URL. Add server-only service credentials only for the features you have configured. Values in local .env.local are intentionally not pushed to GitHub or copied to Vercel automatically. Redeploy after changing public environment variables.
 
 The two additional approved install hooks are @firebase/util (Firebase configuration generation) and protobufjs (a version compatibility check). The strict dependency build policy remains enabled.
+
+Clean GitHub builds do not require .openai/hosting.json or .env.local. Without the four required public Firebase settings, the website serves bundled content and the admin route displays setup instructions. Configure Firebase and redeploy to enable sign-in and live content. This fallback does not bypass admin authorization.
