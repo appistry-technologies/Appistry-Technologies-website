@@ -45,3 +45,11 @@ Gemini REST reference: https://ai.google.dev/api/generate-content
 ## Configured owner
 
 The local app allowlists `appistrytech@gmail.com` in both client and server environment settings. This account must have a verified email address in Firebase Authentication. The matching owner rule is prepared in `firestore.rules`; publish it in Firebase Console > Firestore Database > Rules before saving content. Local file changes do not deploy cloud rules. Restart the app after changing environment settings, then sign out and sign in again.
+
+## Vercel deployment
+
+The checked-in `vercel.json` selects Next.js, installs with `pnpm install --frozen-lockfile`, and builds with `pnpm exec next build --webpack`. Node is pinned to the supported 24.x major, matching local verification. The existing Sites/Cloudflare build script is not used on Vercel.
+
+Before deploying, set your NEXT_PUBLIC_FIREBASE_* configuration in Vercel Project Settings > Environment Variables. Also set NEXT_PUBLIC_ADMIN_EMAILS and ADMIN_EMAILS to appistrytech@gmail.com, and NEXT_PUBLIC_SITE_URL to the final HTTPS site URL. Add server-only service credentials only for the features you have configured. Values in local .env.local are intentionally not pushed to GitHub or copied to Vercel automatically. Redeploy after changing public environment variables.
+
+The two additional approved install hooks are @firebase/util (Firebase configuration generation) and protobufjs (a version compatibility check). The strict dependency build policy remains enabled.
