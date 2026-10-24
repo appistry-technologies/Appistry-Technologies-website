@@ -23,7 +23,7 @@ Use the pnpm version declared in package.json. `pnpm install --frozen-lockfile`,
 ## Before public launch
 
 1. Replace concept apps/case studies with authorised shipped work. Add verified app-store URLs, metrics, ratings, client testimonials, team portraits and office photographs. No fictitious results or endorsements are presented as fact.
-2. Set verified email, phone and WhatsApp values in `content/site.ts`. The map intentionally identifies Lahore, not an invented office address.
+2. Set verified email, phone and WhatsApp values in `content/site.ts`. The map intentionally identifies Multan, not an invented office address.
 3. Implement the clearly marked email TODO in `app/api/contact/route.ts`, configure server-only secrets, and test provider success/failure. Until then the route returns 503 and the interface clearly states the enquiry was not sent. Never return success before provider acceptance.
 4. The in-memory rate limit is best-effort per Worker isolate (5 attempts/15 minutes); use a shared edge limiter or durable store for distributed enforcement. Trust only IP headers injected by your hosting proxy. Unknown-IP traffic shares a fallback bucket.
 5. Set `NEXT_PUBLIC_SITE_URL` to your final origin before building. Review sitemap, robots and metadata. The CSP permits inline framework hydration; tighten with a nonce-based policy if required. Server-backed rendering and theme bootstrapping require a compatible CSP.
