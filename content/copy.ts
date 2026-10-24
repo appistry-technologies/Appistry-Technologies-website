@@ -57,7 +57,7 @@ export const copy = {
     "text30": "And a few ideas of our own.",
     "text31": "A mobile-first product studio. From the first sketch",
     "text32": "to the app people can’t put down.",
-    "text33": "BASED IN LAHORE. BUILDING FOR THE WORLD.",
+    "text33": "BASED IN MULTAN. BUILDING FOR THE WORLD.",
     "text34": "MADE FOR THE",
     "text35": "PLATFORMS YOU TRUST",
     "text36": "App Store",
@@ -148,13 +148,13 @@ export const copy = {
     "text9": "Mobile navigation",
     "text10": "0",
     "text11": "Start a project ",
-    "text12": "Lahore, Pakistan. Built for everywhere.",
+    "text12": "Multan, Pakistan. Built for everywhere.",
     "text13": "YOUR NEXT CHAPTER",
     "text14": "Something in mind?",
     "text15": "Let’s make it real.",
     "text16": "Good ideas. Great apps.",
-    "text17": "Built in Lahore. Used everywhere.",
-    "text18": "Lahore, Pakistan",
+    "text17": "Built in Multan. Used everywhere.",
+    "text18": "Multan, Pakistan",
     "text19": "Serving clients globally",
     "text20": "© ",
     "text21": "Thoughtfully built. End to end."
@@ -177,7 +177,7 @@ export const copy = {
     "text15": "Designers and engineers working together, with a direct line to the people building your product.",
     "text16": "LinkedIn ",
     "text17": "Team introductions and original office photos will be added with permission.",
-    "text18": "Based in Lahore, Pakistan. Company registration details available on request."
+    "text18": "Based in Multan, Pakistan. Company registration details available on request."
   },
   "app_apps_page": {
     "text1": "THE APPISTRY COLLECTION",
@@ -200,8 +200,8 @@ export const copy = {
     "text12": "Chat on WhatsApp",
     "text13": "WhatsApp details coming soon",
     "text14": "BASED IN",
-    "text15": "Map of Lahore, Pakistan — city location, not an exact office address",
-    "text16": "Lahore city map. Meetings by arrangement.",
+    "text15": "Map of Multan, Pakistan — city location, not an exact office address",
+    "text16": "Multan city map. Meetings by arrangement.",
     "text17": "Monday–Friday · Pakistan Standard Time"
   },
   "app_error": {
@@ -224,7 +224,7 @@ export const copy = {
     "text1": "appistry / TECHNOLOGIES",
     "text2": "Good ideas.",
     "text3": "Great apps.",
-    "text4": "Mobile-first product studio · Lahore, Pakistan · Built for the world."
+    "text4": "Mobile-first product studio · Multan, Pakistan · Built for the world."
   },
   "app_services_page": {
     "text1": "OUR CAPABILITIES",
