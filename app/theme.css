@@ -14,7 +14,8 @@
 .light {--background:#f0f8fc;--card:#fff;--primary:#007078;--primary-foreground:#fff;--accent:#006d86;--ring:#007078;--soft-glow:#00a8ac12}
 .light .neon-home {background:#f0f8fc;color:#082031}
 .light .header {background:#f7fcfff5;border-color:#bdd7e2}
-.light .brand {background:#03141c;border-radius:9px;box-shadow:0 0 0 4px #03141c}
+.light .brand {background:transparent;border-radius:0;box-shadow:none}
+.light .hero-brand-wordmark {background-color:transparent;border:0;border-radius:0;box-shadow:none}
 .light .header .icon-button,.light .header .mobile-menu,.light .desktop-nav a {color:#264d60}
 .light .desktop-nav a[aria-current] {color:#006775;border-color:#158599;box-shadow:0 5px 12px -10px #006775}
 .light .mobile-panel {background:#f7fcff;color:#082031}
