@@ -6,9 +6,10 @@
 .brand-emblem {width:72px;height:42px;background-size:96px auto;background-position:center top;flex-shrink:0}
 .brand-wordmark {width:180px;height:38px;background-size:180px auto;background-position:center bottom;flex-shrink:0}
 .dark .brand-emblem,.dark .brand-wordmark {filter:brightness(1.45) contrast(1.08)}
-.footer .footer-top>div:first-child>.brand {margin-bottom:0;vertical-align:bottom}
-.footer .footer-top>div:first-child>p {margin-top:5px;margin-left:78px;line-height:1.4}
+.footer .footer-top>div:first-child>.brand {margin-bottom:0;vertical-align:bottom;align-items:flex-start;height:38px}
+.footer .footer-top>div:first-child>p {margin:0 0 0 78px;width:180px;text-align:center;font-size:10px;letter-spacing:.1px;line-height:1.4}
 @media(max-width:1100px){.brand-emblem{width:56px;height:33px;background-size:76px auto}.brand-wordmark{width:150px;height:32px;background-size:150px auto}.footer .footer-top>div:first-child>p{margin-left:62px}}
+@media(max-width:1100px){.footer .footer-top>div:first-child>.brand{height:32px}.footer .footer-top>div:first-child>p{width:150px;font-size:9px}}
 .dark .neon-service-title>svg {filter:drop-shadow(0 1px 2px #000)!important}
 .dark .neon-service {border-color:#56b6ca85;background:linear-gradient(145deg,#103040,#071923)}
 .mobile-hologram {opacity:1;background:linear-gradient(150deg,#10465b,#031320 75%);border:2px solid #86edff;box-shadow:0 12px 30px #0009,0 0 18px #00d6ff40}
