@@ -1,7 +1,14 @@
 /* Keep artwork vivid while separating foreground UI from decorative light. */
 .hero-brand-wordmark {background-color:#021019e6;border:1px solid #49d7e580;border-radius:18px;box-shadow:0 12px 36px #0009,inset 0 0 22px #00cde51a}
 .dark .hero-brand-wordmark {background-color:transparent;border:0;border-radius:0;box-shadow:none;filter:drop-shadow(0 2px 2px #000) drop-shadow(0 0 3px #80e9ff)}
-.dark .brand {background:transparent;box-shadow:none;filter:drop-shadow(0 1px 2px #000) drop-shadow(0 0 2px #47d5ec70)}
+.dark .brand {background:transparent;box-shadow:none;filter:none}
+.brand {gap:6px;align-items:center}
+.brand-emblem {width:72px;height:42px;background-size:96px auto;background-position:center top;flex-shrink:0}
+.brand-wordmark {width:180px;height:38px;background-size:180px auto;background-position:center bottom;flex-shrink:0}
+.dark .brand-emblem,.dark .brand-wordmark {filter:brightness(1.45) contrast(1.08)}
+.footer .footer-top>div:first-child>.brand {margin-bottom:0;vertical-align:bottom}
+.footer .footer-top>div:first-child>p {margin-top:5px;line-height:1.4}
+@media(max-width:1100px){.brand-emblem{width:56px;height:33px;background-size:76px auto}.brand-wordmark{width:150px;height:32px;background-size:150px auto}}
 .dark .neon-service-title>svg {filter:drop-shadow(0 1px 2px #000)!important}
 .dark .neon-service {border-color:#56b6ca85;background:linear-gradient(145deg,#103040,#071923)}
 .mobile-hologram {opacity:1;background:linear-gradient(150deg,#10465b,#031320 75%);border:2px solid #86edff;box-shadow:0 12px 30px #0009,0 0 18px #00d6ff40}
