@@ -1,0 +1,52 @@
+/* Keep artwork vivid while separating foreground UI from decorative light. */
+.hero-brand-wordmark {background-color:#021019e6;border:1px solid #49d7e580;border-radius:18px;box-shadow:0 12px 36px #0009,inset 0 0 22px #00cde51a}
+.mobile-hologram {opacity:1;background:linear-gradient(150deg,#10465b,#031320 75%);border:2px solid #86edff;box-shadow:0 12px 30px #0009,0 0 18px #00d6ff40}
+.project-device .phone {outline:3px solid #a2e7f4;box-shadow:0 20px 45px #000b,0 0 0 8px #06121c}
+.neon-service-title>svg {stroke-width:2.2;filter:none!important}
+.neon-service.ios .neon-service-title>svg {color:#e8f6ff}
+.neon-project {border-color:#5ab7c780}
+
+/* Explicit light surfaces: the hero image remains original brand artwork. */
+.light {--background:#f0f8fc;--card:#fff;--primary:#007078;--primary-foreground:#fff;--accent:#006d86;--ring:#007078;--soft-glow:#00a8ac12}
+.light .neon-home {background:#f0f8fc;color:#082031}
+.light .header {background:#f7fcfff5;border-color:#bdd7e2}
+.light .brand {background:#03141c;border-radius:9px;box-shadow:0 0 0 4px #03141c}
+.light .header .icon-button,.light .header .mobile-menu,.light .desktop-nav a {color:#264d60}
+.light .desktop-nav a[aria-current] {color:#006775;border-color:#158599;box-shadow:0 5px 12px -10px #006775}
+.light .mobile-panel {background:#f7fcff;color:#082031}
+.light .space-hero {background:#edf8fc;border-color:#b7dbe5}
+.light .space-shade {background:linear-gradient(90deg,#edf8fc 0%,#edf8fcf5 27%,#edf8fc40 53%,transparent 70%)}
+.light .space-copy h1 span,.light .neon-about h2 span {color:#006f7b;text-shadow:none}
+.light .space-description,.light .hero-capabilities span {color:#34586a}
+.light .hero-capabilities strong {color:#006c79}
+.light .hero-capabilities>div {border-color:#83b6c4}
+.light .neon-kicker,.light .neon-text-link,.light .neon-location {color:#006976}
+.light .neon-kicker:before {background:#007988;box-shadow:none}
+.light .neon-section {background:radial-gradient(ellipse at 35% 0,#d9eff6,transparent 70%);border-color:#bed8e2}
+.light .neon-heading>p,.light .neon-service>p,.light .neon-step>p,.light .neon-about-copy>p,.light .neon-values span,.light .neon-contact-form>div>div>p:not(.neon-kicker) {color:#3b5c6e}
+.light .neon-service {background:linear-gradient(145deg,#fff,#e9f6fb);border-color:#9cc7d5;box-shadow:0 6px 18px #1a526809}
+.light .neon-service-title>svg {color:#00788e}
+.light .neon-service.android .neon-service-title>svg {color:#237839}
+.light .neon-service.ios .neon-service-title>svg {color:#203a50}
+.light .neon-service.design .neon-service-title>svg {color:#6650b5}
+.light .neon-service.support .neon-service-title>svg {color:#8b429e}
+.light .neon-button.outline {background:#ffffffed;color:#006574;border-color:#16879a;box-shadow:0 3px 12px #006d8410}
+.light .neon-button,.light .header .cta {background:linear-gradient(120deg,#007a87,#006d99);border-color:#007789;color:#fff;box-shadow:0 5px 18px #006a8520}
+.light .neon-button.outline {background:#ffffffed;color:#006574}
+.light .neon-project {background:linear-gradient(125deg,#fff,#dceff7);border-color:#90bacb}
+.light .project-nature {background:linear-gradient(125deg,#fff,#deeee7)}
+.light .project-focus {background:linear-gradient(125deg,#fff,#e9e5f8)}
+.light .neon-project small,.light .neon-project p,.light .concept-tag {color:#3b5c6e}
+.light .project-device .phone {outline-color:#4d758a;box-shadow:0 20px 35px #183f6540,0 0 0 8px #f4fbff}
+.light .neon-step small {color:#426777}
+.light .step-orb {background:radial-gradient(circle at 30% 20%,#fff,#ccebf6);color:#006d87;border-color:#1689a3;box-shadow:0 4px 14px #00738c15}
+.light .step-connector,.light .neon-values svg {color:#007382}
+.light .neon-contact-band {background:linear-gradient(110deg,#d3edf6,#f6fcff);border-color:#9bcbd9}
+.light .neon-contact-band p:not(.neon-kicker) {color:#34586a}
+.light .neon-contact-form .contact-form {background:#fff;border-color:#a4c9d7;box-shadow:0 8px 26px #143e5509}
+.light .neon-contact-form .field input,.light .neon-contact-form .field textarea,.light .neon-contact-form .field select {background:#f5fafc;color:#082031;border-color:#8bafbf}
+.light .neon-contact-form .field label,.light .neon-contact-form .field legend {color:#173e51}
+.light .neon-contact-form .field input::placeholder,.light .neon-contact-form .field textarea::placeholder,.light .neon-contact-form .form-privacy {color:#4b6a7c}
+.light .footer {background:#e6f2f8;border-color:#bdd7e2}
+@media(max-width:900px){.light .space-shade {background:linear-gradient(90deg,#edf8fc 0%,#edf8fcf2 32%,#edf8fc50 60%,transparent 80%)}}
+@media(max-width:640px){.light .space-shade {background:linear-gradient(180deg,#edf8fc 0%,#edf8fc 43%,#edf8fc15 66%,transparent 80%)}.light .space-hero {background:#edf8fc}}

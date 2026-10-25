@@ -11,6 +11,7 @@ import "./globals.css";
 import "./brand.css";
 import "./neon.css";
 import "./navigation.css";
+import "./theme.css";
 const heading=localFont({src:"./fonts/space-grotesk.woff2",variable:"--font-heading",display:"swap",weight:"300 700"});
 const body=localFont({src:"./fonts/inter.woff2",variable:"--font-body",display:"swap",weight:"100 900"});
 export const metadata:Metadata={metadataBase:new URL(site.url),title:{default:"Appistry Technologies — Good ideas. Great apps.",template:"%s | Appistry Technologies"},description:site.description,alternates:{canonical:"/"},openGraph:{type:"website",siteName:site.name,title:site.name,description:site.description,images:["/opengraph-image"]},twitter:{card:"summary_large_image",images:["/opengraph-image"]},icons:{icon:"/favicon.svg"}};
