@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {useState} from "react";
+
 import {motion,useMotionValue,useSpring,useReducedMotion} from "framer-motion";
-import {ArrowRight,Apple,Smartphone,PenTool,Wrench,ClipboardList,Target,Code2,Rocket,CheckCircle2,Pause,Play} from "lucide-react";
+import {ArrowRight,Apple,Smartphone,PenTool,Wrench,ClipboardList,Target,Code2,Rocket,CheckCircle2,Play} from "lucide-react";
 import {useContent} from "@/components/admin/content-provider";
 import {Phone} from "./phone";
 import {Reveal} from "./shell";
@@ -27,20 +27,20 @@ const services=[
 
 export default function NeonHome(){
   const {content:{apps,site}}=useContent();
-  const [paused,setPaused]=useState(false);
+
   const reduced=useReducedMotion();
   const x=useMotionValue(0),y=useMotionValue(0);
   const sx=useSpring(x,{stiffness:65,damping:25}),sy=useSpring(y,{stiffness:65,damping:25});
-  return <div className={`neon-home ${paused?"motion-paused":""}`}>
+  return <div className="neon-home">
     <section className="space-hero" id="home" onPointerMove={e=>{
-      if(reduced||paused||e.pointerType!=="mouse"||!window.matchMedia("(hover:hover)").matches)return;
+      if(reduced||e.pointerType!=="mouse"||!window.matchMedia("(hover:hover)").matches)return;
       const r=e.currentTarget.getBoundingClientRect();x.set((e.clientX-r.left-r.width/2)*.018);y.set((e.clientY-r.top-r.height/2)*.018);
     }} onPointerLeave={()=>{x.set(0);y.set(0)}}>
-      <motion.div className="space-art" style={{x:reduced||paused?0:sx,y:reduced||paused?0:sy}} aria-hidden="true">
+      <motion.div className="space-art" style={{x:reduced?0:sx,y:reduced?0:sy}} aria-hidden="true">
         <Image src="/images/neon-mobile-ai.webp" alt="" fill preload sizes="100vw"/>
       </motion.div>
       <div className="space-shade" aria-hidden="true"/>
-      <HeroSignals paused={paused}/>
+      <HeroSignals paused={false}/>
       <div className="space-particles" aria-hidden="true">{Array.from({length:12},(_,i)=><i key={i} style={{left:`${45+(i*17)%53}%`,top:`${8+(i*13)%65}%`,animationDelay:`${i*-.7}s`}}/>)}</div>
       <div className="orbit-rings" aria-hidden="true"><i/><i/><i/></div>
       <div className="mobile-hologram hologram-one" aria-hidden="true"><i/><b/><span/><span/><em/></div>
@@ -57,7 +57,6 @@ export default function NeonHome(){
         </Reveal>
       </div>
       <div className="hero-rail" aria-hidden="true"><span>IDEAS</span><span>DESIGN</span><span>FLUTTER</span><span>LAUNCH</span></div>
-      <button className="motion-toggle" onClick={()=>{setPaused(!paused);x.set(0);y.set(0)}} aria-pressed={paused} aria-label={paused?"Play decorative animations":"Pause decorative animations"}>{paused?<Play size={13}/>:<Pause size={13}/>}<span>{paused?"Play motion":"Pause motion"}</span></button>
     </section>
 
     <section className="neon-section" id="services"><div className="neon-container">
