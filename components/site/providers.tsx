@@ -7,7 +7,7 @@ import {ContentProvider,type ContentState} from "@/components/admin/content-prov
 
 export function Providers({children,initialContent}:{children:React.ReactNode;initialContent?:Partial<ContentState>}){
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+    <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light" enableSystem={false} disableTransitionOnChange>
       <MotionConfig reducedMotion="user">
         <AdminProvider>
           <ContentProvider initialContent={initialContent}>
