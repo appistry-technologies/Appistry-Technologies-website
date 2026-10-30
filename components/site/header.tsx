@@ -1,25 +1,19 @@
 "use client";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
-import {useTheme} from "next-themes";
-import {useEffect,useState,useSyncExternalStore} from "react";
-import {ArrowUpRight,Menu,Sun,Moon} from "lucide-react";
+import {useEffect,useState} from "react";
+import {ArrowUpRight,Menu} from "lucide-react";
 import {useContent} from "@/components/admin/content-provider";
 import {Sheet,SheetContent,SheetTitle,SheetDescription,SheetTrigger,SheetClose} from "@/components/ui/sheet";
 import {Button} from "@/components/ui/button";
 import {Brand,ProjectLink} from "./shell";
 import {Announcement} from "./extras";
 
-const subscribe=()=>()=>{};
-const client=()=>true;
-const server=()=>false;
 const sections=["home","services","work","process","about","contact"];
 
 export function Header(){
   const {content:{site,copy}}=useContent();
   const path=usePathname();
-  const {resolvedTheme,setTheme}=useTheme();
-  const mounted=useSyncExternalStore(subscribe,client,server);
   const [compact,setCompact]=useState(false);
   const [open,setOpen]=useState(false);
   const [active,setActive]=useState("home");
@@ -45,7 +39,6 @@ export function Header(){
     <Brand/>
     <nav className="desktop-nav" aria-label={copy.components_site_shell.text6}>{site.nav.map(n=><Link key={n.href} href={n.href} aria-current={isCurrent(n.href)?"location":undefined} onClick={()=>select(n.href)}>{n.label}</Link>)}</nav>
     <div className="header-actions">
-      <Button variant="ghost" size="icon" className="icon-button" aria-label={mounted&&resolvedTheme==="light"?"Switch to dark theme":"Switch to light theme"} onClick={()=>setTheme(resolvedTheme==="dark"?"light":"dark")}>{mounted&&resolvedTheme==="light"?<Moon size={18}/>:<Sun size={18}/>}</Button>
       <span className="header-cta"><ProjectLink/></span>
       <Sheet open={open} onOpenChange={setOpen}><SheetTrigger asChild><Button variant="ghost" size="icon" className="mobile-menu" aria-label={copy.components_site_shell.text7}><Menu/></Button></SheetTrigger>
         <SheetContent className="mobile-panel"><SheetTitle className="sr-only">Main navigation</SheetTitle><div onClick={()=>setOpen(false)}><Brand/></div><SheetDescription>Explore Appistry Technologies</SheetDescription>
